@@ -96,8 +96,6 @@ export default function ExampleApp({
     MainMenu,
     LiveCollaborationTrigger,
     convertToExcalidrawElements,
-    TTDDialog,
-    TTDDialogTrigger,
     ROUNDNESS,
     loadSceneOrLibraryFromBlob,
   } = excalidrawLib;
@@ -243,20 +241,6 @@ export default function ExampleApp({
           Toggle Custom Sidebar
         </Sidebar.Trigger>
         {renderMenu()}
-        {excalidrawAPI && (
-          <TTDDialogTrigger icon={<span>😀</span>}>
-            Text to diagram
-          </TTDDialogTrigger>
-        )}
-        <TTDDialog
-          onTextSubmit={async (_) => {
-            console.info("submit");
-            // sleep for 2s
-            await new Promise((resolve) => setTimeout(resolve, 2000));
-            throw new Error("error, go away now");
-            // return "dummy";
-          }}
-        />
       </>,
     );
     return newElement;
